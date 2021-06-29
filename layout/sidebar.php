@@ -10,8 +10,6 @@
                 <li class="nav-item"><a class="nav-link" href="?cms=content_management"><i class="fas fa-table"></i><span>Post Management</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="?cms=feedback_management"><i class="fa fa-pencil-square"></i><span>Feedback Management</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="?cms=email_blast"><i class="fas fa-envelope-square"></i><span>Email Blasting</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="login.php"><i class="far fa-user-circle"></i><span>Login</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="register.php"><i class="fas fa-user-circle"></i><span>Register</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="member/index.php"><i class="fas fa-user-circle"></i><span>Go to member side</span></a></li>
             </ul>
         <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>

@@ -39,7 +39,7 @@
             <a class="nav-link" href="events.php">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Academic</a>
+            <a class="nav-link" href="academic.php">Academic</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Organization</a>

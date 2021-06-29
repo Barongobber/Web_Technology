@@ -31,10 +31,10 @@
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4"> <strong>Welcome to PPI UTM-Connect</strong></h4>
                                     </div>
-                                    <form class="user">
-                                        <div class="form-group"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email"></div>
-                                        <div class="form-group"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password"></div>
-                                        <button class="btn btn-primary btn-block text-white btn-user" type="button" data-toggle="modal" data-target="#myModal" style="background: rgb(230,32,43);">Login</button>
+                                    <form id="login" class="user">
+                                        <div class="form-group"><input class="form-control form-control-user" type="email" id="userEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email"></div>
+                                        <div class="form-group"><input class="form-control form-control-user" type="password" id="userPassword" placeholder="Password" name="password"></div>
+                                        <button class="btn btn-primary btn-block text-white btn-user" type="submit" data-toggle="modal" data-target="#myModal" style="background: rgb(230,32,43);">Login</button>
                                         <hr>
                                     </form>
                                     <div class="text-center"><a class="small" href="forget_password.php">Forgot Password?</a></div>
@@ -54,7 +54,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title"><Strong>Result</Strong></h4>
-                    <button onclick="login();" type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button onclick="" type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
                         <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
@@ -68,7 +68,7 @@
                         <center class="success-login">Login Success!!</center>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" onclick="login();" class="btn btn-success" data-dismiss="modal">Ok</button>
+                    <button type="button" onclick="" class="btn btn-success" data-dismiss="modal">Ok</button>
                     </div>
                 </div>
             
@@ -81,9 +81,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/script.min.js"></script>
     <script>
-        function login(){
-            location.href = '<?php echo "http://".$_SERVER['HTTP_HOST']."/utm-connect/index.php"; ?>';
-        }
+        $('#login').submit(function (event){
+            event.preventDefault();
+
+            var formData = {
+                email: $("#userEmail").val(),
+                password: $("#userPassword").val()
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "assets/php/auth/check_user.php",
+                data: formData,
+                dataType: "json",
+
+                success: function(data, status, xhr) {
+                    if(data.status == "success"){
+                        if(!data.user || !data.pass){
+                            alert("Either email or password are invalid")
+                        }else{
+                            console.log(data.pass);
+                            window.location = 'index.php';
+                            exit();
+                        }
+                    }else if(data.status == "fail"){
+                        console.log(data.status);
+                    }
+                },
+                error: function(e){
+                    alert("Error " + e.responseText);
+                }
+            })
+        })
+
         // Get the modal
         var modal = document.getElementById('myModal');
 
