@@ -1,8 +1,9 @@
+<?php include_once('../assets/php/check_auth.php'); ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>Events@UTM Connect</title>
+  <title>Profile</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- ICONS -->
@@ -57,7 +58,10 @@
                     <div class="d-lg-none dropdown-divider"></div>
                     <img class="border rounded-circle img-profile avatar" src="assets/img/profile.jpg"></a>
                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
-                      <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                      <a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                      <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                      <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                      <a class="dropdown-item" href="../"><i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Go to Management Side</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="loggedout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
                     </div>
@@ -91,7 +95,7 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-user-tag mr-2"></i>Access Grant:</span>
                         </div>
                         <div class="col-7">                   
-                            <span>High Marshall</span>
+                            <span id="member_access_grant"></span>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -102,7 +106,7 @@ Insert Here
                             <span class="d-inline 600"><i class="fas fa-user mr-2"></i>Matric No:</span>
                         </div>
                         <div class="col-7">
-                            <span>A18XX0000</span>
+                            <span id="member_matrix_card"></span>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -113,7 +117,7 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-id-badge mr-2"></i>Full Name:</span>
                         </div>
                         <div class="col-7">
-                            <span>Udin Saleh</span>
+                            <span id="member_name"></span>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -124,7 +128,7 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-envelope mr-2"></i>Email:</span>
                         </div>
                         <div class="col-7">                   
-                            <span>lorem@ipsum.dolor</span>
+                            <span id="member_email"></span>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -135,7 +139,7 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-calendar-alt mr-2"></i>Batch:</span>
                         </div>
                         <div class="col-7">                   
-                            <span>2069/2070-7</span>
+                            <span id="member_batch"></span>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -146,7 +150,7 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-university mr-2"></i>Program:</span>
                         </div>
                         <div class="col-7">                   
-                            <span>Catfish breeding</span>
+                            <span id="member_program_code"></span>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -157,7 +161,7 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-graduation-cap mr-2"></i>Degree</span>
                         </div>
                         <div class="col-7">                   
-                            <span>Doctorate</span>
+                            <span id="member_degree"></span>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -168,14 +172,13 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-map-marker-alt mr-2"></i>Address</span>
                         </div>
                         <div class="col-lg-6">                   
-                            <span>12th Setapak Avenue, Memory Lane, Chaotic District, Sleepy City, 
-                                Mature Prefecture, Tuvalu 69666 </span>
+                            <span id="member_address"></span>
                         </div>
                     </div>
                     <hr class="mt-0">
                 </div>
                 <div class="mx-auto">
-                  <a href=""><button class="btn btn-std">Edit Profile</button></a> 
+                  <a href="editprofile.php"><button class="btn btn-std">Edit Profile</button></a> 
                 </div>
             </div>
         </div>
@@ -228,10 +231,43 @@ Insert Here
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+  $(document).ready(function(){
+    var user = null;
+    $.ajax({
+      type: "GET",
+      url: "../assets/php/profile.php",
+      dataType: "json",
+      success: function(data, status, xhr) {
+        console.log(data);
+        user = data.user;
+        console.log(user);
+        if(data.user.access_grant == 1){
+          $("#member_access_grant").html("Member");
+        }if(data.user.access_grant == 2) {
+          $("#member_access_grant").html("Management");
+        }if(data.user.access_grant == 3) {
+          $("#member_access_grant").html("Admin");
+        }
+        $("#member_matrix_card").html(data.user.matrix_card);
+        $("#member_name").html(data.user.name);
+        $("#member_email").html(data.user.email);
+        $("#member_batch").html(data.user.batch);
+        $("#member_program_code").html(data.user.program_code);
+        $("#member_degree").html(data.user.degree);
+        $("#member_address").html(data.user.address);
+      },
+      error: function() {
+        alert(status);
+      }
+    })
+  })
+</script>
 </body>
 
 </html>

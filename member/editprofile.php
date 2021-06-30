@@ -57,7 +57,10 @@
                     <div class="d-lg-none dropdown-divider"></div>
                     <img class="border rounded-circle img-profile avatar" src="assets/img/profile.jpg"></a>
                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
-                      <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                      <a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                      <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                      <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                      <a class="dropdown-item" href="../"><i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Go to Management Side</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="loggedout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
                     </div>
@@ -83,7 +86,7 @@ Insert Here
                     <span class="text-avatar-profile">Change profile picture</span>
                 </div>
             </div>
-            <form action="">
+            <form id="edit_form">
             <div class="row profile-show">
                 
                 <div class="col-lg-6 col-sm-12 col-md-6 mb-2 user-data">
@@ -92,7 +95,7 @@ Insert Here
                             <span class="d-inline 600"><i class="fas fa-user-tag mr-2"></i>Access Grant:</span>
                         </div>
                         <div class="col-7">
-                            <input class="profile-input" type="text" name="accessgrant" id="accessGrant" placeholder="High Marshall" disabled>
+                            <input class="profile-input" type="text" name="access_grant" id="member_access_grant" disabled>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -103,7 +106,7 @@ Insert Here
                             <span class="d-inline 600"><i class="fas fa-user mr-2"></i>Matric No:</span>
                         </div>
                         <div class="col-7">
-                            <input type="text" name="matricNo" id="matricNo" class="profile-input" placeholder="A18XX0000">
+                            <input type="text" name="matrix_card" id="member_matrix_card" class="profile-input" disabled>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -114,7 +117,7 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-id-badge mr-2"></i>Full Name:</span>
                         </div>
                         <div class="col-7">
-                            <input type="text" name="fullName" id="fullName" class="profile-input" placeholder="Udin Saleh">
+                            <input type="text" name="name" id="member_name" class="profile-input" disabled>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -125,7 +128,7 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-envelope mr-2"></i>Email:</span>
                         </div>
                         <div class="col-7">                   
-                            <input type="email" name="email" id="email" class="profile-input" placeholder="lorem@ipsum.dolor">
+                            <input type="email" name="email" id="member_email" class="profile-input">
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -136,7 +139,7 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-calendar-alt mr-2"></i>Batch:</span>
                         </div>
                         <div class="col-7">                                      
-                            <input type="text" name="batch" id="batch" class="profile-input" placeholder="2069/2077">
+                            <input type="text" name="batch" id="member_batch" class="profile-input" disabled>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -147,7 +150,7 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-university mr-2"></i>Program:</span>
                         </div>
                         <div class="col-7">                   
-                            <input type="text" name="program" id="program" class="profile-input" placeholder="Catfish Breeding">
+                            <input type="text" name="program_code" id="member_program_code" class="profile-input" disabled>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -158,7 +161,7 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-graduation-cap mr-2"></i>Degree</span>
                         </div>
                         <div class="col-7">                                  
-                            <input type="text" name="degree" id="degree" class="profile-input" placeholder="Doctorate">
+                            <input type="text" name="degree" id="member_degree" class="profile-input" disabled>
                         </div>
                     </div>
                     <hr class="mt-0">
@@ -169,15 +172,14 @@ Insert Here
                             <span class="d-inline"><i class="fas fa-map-marker-alt mr-2"></i>Address</span>
                         </div>
                         <div class="col-lg-6"> 
-                            <textarea name="address" id="address" cols="30" rows="10" class="profile-input">12th Setapak Avenue, Memory Lane, Chaotic District, Sleepy City, Mature Prefecture, Tuvalu 69666
-                            </textarea>                 
+                            <textarea name="address" id="member_address" cols="30" rows="10" class="profile-input"></textarea>                 
                         </div>
                     </div>
                     <hr class="mt-0">
                 </div>
                 <div class="mx-auto">
-                    <input type="submit" class="btn btn-red" value="Submit">
-                    <a href=""><button class="btn btn-form-cancel">Cancel</button></a> 
+                    <button type="submit" class="btn btn-red">Submit</button>
+                    <input type="button" id="cancel" class="btn btn-form-cancel" value="Cancel"> 
                 </div>
                 
             </div>
@@ -232,10 +234,60 @@ Insert Here
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+  $(document).ready(function(){
+    var user = null;
+    $.ajax({
+      type: "GET",
+      url: "../assets/php/profile.php",
+      dataType: "json",
+      success: function(data, status, xhr) {
+        user = data.user;
+        if(data.user.access_grant == 1){
+          $("#member_access_grant").attr("placeholder", "Member");
+        }if(data.user.access_grant == 2) {
+          $("#member_access_grant").attr("placeholder", "Management");
+        }if(data.user.access_grant == 3) {
+          $("#member_access_grant").attr("placeholder", "Admin");
+        }
+        $("#member_matrix_card").attr("placeholder", data.user.matrix_card);
+        $("#member_name").attr("placeholder", data.user.name);
+        $("#member_email").attr("value", data.user.email);
+        $("#member_batch").attr("placeholder", data.user.batch);
+        $("#member_program_code").attr("placeholder", data.user.program_code);
+        $("#member_degree").attr("placeholder", data.user.degree);
+        $("#member_address").html(data.user.address);
+      },
+      error: function() {
+        alert(status);
+      }
+    });
+
+    $("#edit_form").submit(function(){
+      $.ajax({
+        type: "POST",
+        url: "../assets/php/editprofile.php",
+        dataType: "json",
+        success: function(data, status, xhr) {
+          alert("STATUS");
+        },
+        error: function(e) {
+          alert("ERROR : " + e.responseText);
+        }
+      })
+    });
+
+    $("#cancel").click(function() {
+      location.href = "profile.php";
+    });
+
+  })
+</script>
 </body>
 
 </html>
