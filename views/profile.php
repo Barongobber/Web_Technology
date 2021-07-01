@@ -70,24 +70,26 @@
                 <div class="col">
                     <div class="card shadow mb-3">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">User Settings</p>
+                            <p class="text-primary m-0 font-weight-bold">User Details</p>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form id="edit_form">
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="username"><strong>Username</strong></label><input class="form-control" type="text" id="username" placeholder="user.name" name="username"></div>
+                                        <div class="form-group"><label for="name"><strong>Full Name</strong></label><input class="form-control" type="text" id="name" name="name" disabled></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label for="email"><strong>Email Address</strong></label><input class="form-control" type="email" id="email" placeholder="user@example.com" name="email"></div>
+                                        <div class="form-group"><label for="matrix_card"><strong>Matric</strong></label><input class="form-control" type="text" id="matrix_card" name="matrix_card" disabled></div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="first_name"><strong>First Name</strong></label><input class="form-control" type="text" id="first_name" placeholder="John" name="first_name"></div>
+                                        <div class="form-group"><label for="address"><strong>Address</strong></label><input class="form-control" type="text" id="address" name="address"></div>
                                     </div>
+                                </div>
+                                <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="last_name"><strong>Last Name</strong></label><input class="form-control" type="text" id="last_name" placeholder="Doe" name="last_name"></div>
+                                        <div class="form-group"><label for="email"><strong>Email Address</strong></label><input class="form-control" type="email" id="email" name="email"></div>
                                     </div>
                                 </div>
                                 <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" style="background: rgb(230,32,43);border-color: rgb(230,32,43);">Save Settings</button></div>
@@ -96,20 +98,24 @@
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">Contact Settings</p>
+                            <p class="text-primary m-0 font-weight-bold">Management Details</p>
                         </div>
                         <div class="card-body">
                             <form>
-                                <div class="form-group"><label for="address"><strong>Address</strong></label><input class="form-control" type="text" id="address" placeholder="Sunset Blvd, 38" name="address"></div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="city"><strong>City</strong></label><input class="form-control" type="text" id="city" placeholder="Los Angeles" name="city"></div>
+                                        <div class="form-group"><label for="management_year"><strong>Management Year</strong></label><input class="form-control" type="text" id="management_year" name="management_year" disabled></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label for="country"><strong>Country</strong></label><input class="form-control" type="text" id="country" placeholder="USA" name="country"></div>
+                                        <div class="form-group"><label for="management_role"><strong>Management Role</strong></label><input class="form-control" type="text" id="management_role" name="management_role" disabled></div>
                                     </div>
                                 </div>
-                                <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" style="background: rgb(230,32,43);border-color: rgb(230,32,43);">Save&nbsp;Settings</button></div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label for="division_name"><strong>Division Name</strong></label><input class="form-control" type="text" id="division_name" name="division_name" disabled></div>
+                                    </div>
+                                </div>
+                                <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" style="background: rgb(230,32,43);border-color: rgb(230,32,43); display:none">Save&nbsp;Settings</button></div>
                             </form>
                         </div>
                     </div>
@@ -136,3 +142,59 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        var user = null;
+        $.ajax({
+            type: "GET",
+            url: "assets/php/profile.php",
+            dataType: "json",
+            success: function(data, status, xhr) {
+                user = data.user;
+                $("#matrix_card").attr("placeholder", data.user.matrix_card);
+                $("#name").attr("placeholder", data.user.name);
+                $("#email").attr("value", data.user.email);
+                $("#address").attr("value", data.user.address);
+            },
+            error: function(e) {
+                alert("Error" + e.responseText);
+            }
+        });
+        $.ajax({
+            type: "GET",
+            url: "assets/php/managementprofile.php",
+            dataType: "json",
+            success: function(data, status, xhr) {
+                user = data.user;
+                $("#management_year").attr("placeholder", data.user.management_year);
+                $("#management_role").attr("placeholder", data.user.management_role_id);
+                $("#division_name").attr("value", data.user.division_name);
+            },
+            error: function(e) {
+                alert("Error" + e.responseText);
+            }
+        })
+
+        $("#edit_form").submit(function(e){
+            e.preventDefault();
+
+            var formData = $(this).serialize();
+            console.log($("#matrix_card").attr("placeholder"));
+
+            $.ajax({
+                type: "POST",
+                url: "assets/php/editprofile.php",
+                data: formData + "&matrix_card=" + $("#matrix_card").attr("placeholder"),
+                dataType: "json",
+
+                success: function(data, status, xhr) {
+                    console.log(data.count);
+                    if(data.count > 0) alert("SUCCESS");
+                },
+                error: function(e) {
+                    alert("ERROR : " + e.responseText);
+                }
+            })
+        });
+    })
+</script>

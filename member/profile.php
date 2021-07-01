@@ -244,9 +244,7 @@ Insert Here
       url: "../assets/php/profile.php",
       dataType: "json",
       success: function(data, status, xhr) {
-        console.log(data);
         user = data.user;
-        console.log(user);
         if(data.user.access_grant == 1){
           $("#member_access_grant").html("Member");
         }if(data.user.access_grant == 2) {

@@ -268,13 +268,21 @@ Insert Here
       }
     });
 
-    $("#edit_form").submit(function(){
+    $("#edit_form").submit(function(e){
+      e.preventDefault();
+
+      var formData = $(this).serialize();
+      console.log($("#member_matrix_card").attr("placeholder"));
+
       $.ajax({
         type: "POST",
         url: "../assets/php/editprofile.php",
+        data: formData + "&matrix_card=" + $("#member_matrix_card").attr("placeholder"),
         dataType: "json",
+
         success: function(data, status, xhr) {
-          alert("STATUS");
+          console.log(data.count);
+          location.href = "profile.php";
         },
         error: function(e) {
           alert("ERROR : " + e.responseText);

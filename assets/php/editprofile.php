@@ -2,18 +2,22 @@
 
 require 'db.php';
 
+$matrix_card = $_POST['matrix_card'];
 $email = $_POST['email'];
 $address = $_POST['address'];
-$matrix_card = $_POST['matrix_card'];
 
 try{
-    $sql = "UPDATE member SET email=?, address=? WHERE matrix_card=?";
+    $sql = "UPDATE `member` SET `email` = :email, `address` =  :address WHERE `matrix_card` = :matrix_card";
     $db= new db();
 
     $db = $db->connect();
     $stmt = $db->prepare($sql);
+    $stmt->bindValue(":email", $email);
+    $stmt->bindValue(":address", $address);
+    $stmt->bindValue(":matrix_card", $matrix_card);
 
-    $stmt->execute([$email, $address, $matrix_card]);
+
+    $stmt->execute();
     $count = $stmt->rowCount();
     $db = null;
 
