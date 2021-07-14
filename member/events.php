@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/styles.css" />
 
 </head>
-<body>
+<body onload="loadEvent()">
 <section id="navMenu">
     <nav class="nav-head navbar fixed-top navbar-expand-lg navbar-dark">
       <a class="navbar-brand" href="index.php"><img src="assets/icon/android-icon-72x72.png" /> UTM CONNECT</a>
@@ -116,7 +116,7 @@
     </div>
   </div>
   <div class="container-fluid list-container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center event-row">
       <!-- Event Cards-->
       <div class="col-lg-12 col-md-12 col-12 card-column">
         <div class="card mb-3 list-card">
@@ -315,9 +315,57 @@
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function(){
+    $.ajax({
+      type: "GET",
+      url: "../assets/php/event/get_event.php",
+      dataType: "json",
+      success: function(data, status, xhr) {
+        document.querySelector('.event-row').innerHTML="";
+        console.log(data.length);
+        let eventList='';
+        for(let i=0; i<data.length; i++){
+          let json=data[i];
+          eventList+='<div class=\"col-lg-12 col-md-12 col-12 card-column\">'
+          eventList+='<div class=\"card mb-3 list-card\">'
+          eventList+='<div class=\"row no-gutters event-card\">'
+          eventList+='<div class=\"col-lg-4 col-md-4 col-sm-4\">'
+          eventList+='<img class=\"img-fluid event-card-img text-left\" src=\"events/img/event.jpg\" alt=\"\"></div>'
+          eventList+='<div class=\"col-lg-8 col-md-8 col-sm-8\">'
+          eventList+='<div class=\"card-body event-card-body\">'
+          eventList+='<h4 class=\"event-title\">'+json.event_title+'</h4>'
+          eventList+='<div class=\"event-card-details\">'
+          eventList+='<span class=\"post-details\"> Category: <p class=\"event-category\">'+json.event_category+'</p></span></div>'
+          eventList+='<div class=\"row event-description justify-content-center\">'
+          eventList+='<div class=\"col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading\">'
+          eventList+='<span style=\"font-weight:bold;\">Date: </span>'
+          eventList+='<span style=\"display:block;\">'+json.event_date+'</span></div>'
+          eventList+='<div class=\"col-lg-6 col-sm-6 col-md-6 event-subheading\">'
+          eventList+='<span style=\"font-weight:bold;\">Venue:</span>'
+          eventList+='<span style=\"display:block;\">'+json.event_venue+'</span></div>'
+          eventList+='<div class=\"col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading\">'
+          eventList+='<span style=\"font-weight:bold;\">Time: </span>'
+          eventList+='<span style=\"display:block;\">The time</span></div>'
+          eventList+='<div class=\"col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading\">'
+          eventList+='<span style=\"font-weight:bold;\">Link:</span>'
+          eventList+='<span style=\"display:block;\">The link if any</span></div></div></div> </div></div>'
+          eventList+='<div class=\"text-right event-button\">'
+          eventList+='<a href=\"view-event.php?id='+json.event_id+'\"><button class=\"btn btn-red\">Check out event</button></a></div></div>'
+        }
+        document.querySelector('.event-row').innerHTML=eventList;
+      },
+      error: function() {
+        alert(status);
+      }
+    })
+  })
+</script>
 <script src="js/script.js"></script>
+
 </body>
 
 </html>
