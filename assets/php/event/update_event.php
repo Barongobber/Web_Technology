@@ -25,14 +25,14 @@
                     event_title 	= :event_title,
                     event_category 	= :event_category,
                     event_venue = :event_venue,
-                    posted_on 	= :posted_on
-                    open_for 	= :open_for
-                    closed_on 	= :closed_on
-                    event_details 	= :event_details
-                    event_url 	= :event_url
-                    event_date 	= :event_date
-                    event_pic1 	= :event_pic1
-                    event_pic2 	= :event_pic2
+                    posted_on 	= :posted_on,
+                    open_for 	= :open_for,
+                    closed_on 	= :closed_on,
+                    event_details 	= :event_details,
+                    event_url 	= :event_url,
+                    event_date 	= :event_date,
+                    event_pic1 	= :event_pic1,
+                    event_pic2 	= :event_pic2,
                     event_pic3 	= :event_pic3
                 WHERE event_id = $id";
 
