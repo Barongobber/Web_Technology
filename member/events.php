@@ -118,154 +118,6 @@
   <div class="container-fluid list-container">
     <div class="row justify-content-center event-row">
       <!-- Event Cards-->
-      <div class="col-lg-12 col-md-12 col-12 card-column">
-        <div class="card mb-3 list-card">
-          <div class="row no-gutters event-card">
-            <div class="col-lg-4 col-md-4 col-sm-4">
-              <img class="img-fluid event-card-img text-left" src="events/img/event.jpg" class="card-img-right" alt="">
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8">
-              <div class="card-body event-card-body">
-                <h4 class="event-title">Elegant Event</h4>
-                <div class="event-card-details">
-                      <span class="post-details"> Category: <p class="event-category">Volunteer</p></span>
-                </div>
-                <div class="row event-description justify-content-center">
-                  <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
-                    <span style="font-weight:bold;">Date: </span>
-                    <span style="display:block;">The date</span>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                    <span style="font-weight:bold;">Venue:</span>
-                    <span style="display:block;">The venue</span>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
-                    <span style="font-weight:bold;">Time: </span>
-                    <span style="display:block;">The time</span>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
-                    <span style="font-weight:bold;">Link:</span>
-                    <span style="display:block;">The link if any</span>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="text-right event-button">
-                  <a href="view-event.php"><button class="btn btn-red">Check out event</button></a>
-              </div>
-      </div>
-    </div>
-      <div class="col-lg-12 col-md-12 col-12 card-column">
-        <div class="card mb-3 list-card">
-          <div class="row no-gutters event-card">
-            <div class="col-lg-4 col-md-4 col-sm-4">
-              <img class="img-fluid event-card-img text-left" src="events/img/musicevent.jpg" class="card-img-right" alt="">
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8">
-              <div class="card-body event-card-body">
-                <h4 class="event-title">Music Event</h4>
-                <div class="event-card-details">
-                      <span class="post-details"> Category: <p class="event-category">Leadership</p></span>
-                </div>
-                <div class="row event-description justify-content-center">
-                  <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
-                    <span style="font-weight:bold;">Date: </span>
-                    <span style="display:block;">The date</span>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                    <span style="font-weight:bold;">Venue:</span>
-                    <span style="display:block;">The venue</span>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
-                    <span style="font-weight:bold;">Time: </span>
-                    <span style="display:block;">The time</span>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
-                    <span style="font-weight:bold;">Link:</span>
-                    <span style="display:block;">The link if any</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-right event-button">
-                  <a href=""><button class="btn btn-red">Check out event</button></a>
-              </div>
-        </div>
-      </div>
-      <div class="col-lg-12 col-md-12 col-12 card-column">
-        <div class="card mb-3 list-card">
-          <div class="row no-gutters event-card">
-            <div class="col-lg-4 col-md-4 col-sm-4">
-              <img class="img-fluid event-card-img text-left" src="events/img/musicfest.jpg" class="card-img-right" alt="">
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8">
-              <div class="card-body event-card-body">
-                <h4 class="event-title">Musicfest</h4>
-                <div class="event-card-details">
-                      <span class="post-details"> Category: <p class="event-category">Sport</p></span>
-                </div>
-                <div class="row event-description justify-content-center">
-                  <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
-                    <span style="font-weight:bold;">Date: </span>
-                    <span style="display:block;">The date</span>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                    <span style="font-weight:bold;">Venue:</span>
-                    <span style="display:block;">The venue</span>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
-                    <span style="font-weight:bold;">Time: </span>
-                    <span style="display:block;">The time</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-right event-button">
-                  <a href=""><button class="btn btn-red">Check out event</button></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-12 col-md-12 col-12 card-column">
-        <div class="card mb-3 list-card">
-          <div class="row no-gutters event-card">
-            <div class="col-lg-4 col-md-4 col-sm-4">
-              <img class="img-fluid event-card-img text-left" src="events/img/mainevent.png" class="card-img-right" alt="">
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8">
-              <div class="card-body event-card-body">
-                <h4 class="event-title">Summer Event</h4>
-                <div class="event-card-details">
-                      <span class="post-details"> Category: <p class="event-category">Award</p></span>
-                </div>
-                <div class="row event-description justify-content-center">
-                  <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
-                    <span style="font-weight:bold;">Date: </span>
-                    <span style="display:block;">The date</span>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                    <span style="font-weight:bold;">Venue:</span>
-                    <span style="display:block;">The venue</span>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
-                    <span style="font-weight:bold;">Time: </span>
-                    <span style="display:block;">The time</span>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
-                    <span style="font-weight:bold;">Link:</span>
-                    <span style="display:block;">The link if any</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-right event-button">
-                  <a href=""><button class="btn btn-red">Check out event</button></a>
-              </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -325,7 +177,7 @@
       url: "../assets/php/event/get_event.php",
       dataType: "json",
       success: function(data, status, xhr) {
-        document.querySelector('.event-row').innerHTML="";
+        $('.event-row').html("");
         console.log(data.length);
         let eventList='';
         for(let i=0; i<data.length; i++){
@@ -334,7 +186,7 @@
           eventList+='<div class=\"card mb-3 list-card\">'
           eventList+='<div class=\"row no-gutters event-card\">'
           eventList+='<div class=\"col-lg-4 col-md-4 col-sm-4\">'
-          eventList+='<img class=\"img-fluid event-card-img text-left\" src=\"events/img/event.jpg\" alt=\"\"></div>'
+          eventList+='<img class=\"img-fluid event-card-img text-left\" src=\"../assets/img/'+json.event_pic1+'\" alt=\"\"></div>'
           eventList+='<div class=\"col-lg-8 col-md-8 col-sm-8\">'
           eventList+='<div class=\"card-body event-card-body\">'
           eventList+='<h4 class=\"event-title\">'+json.event_title+'</h4>'
@@ -356,7 +208,7 @@
           eventList+='<div class=\"text-right event-button\">'
           eventList+='<a href=\"view-event.php?id='+json.event_id+'\"><button class=\"btn btn-red\">Check out event</button></a></div></div>'
         }
-        document.querySelector('.event-row').innerHTML=eventList;
+        $('.event-row').html(eventList);
       },
       error: function() {
         alert(status);

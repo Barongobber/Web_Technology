@@ -99,19 +99,19 @@
                 <div class="row event-description justify-content-center">
                   <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
                     <span style="font-weight:bold;">Date: </span>
-                    <span style="display:block;">The date</span>
+                    <span class="eventdate" style="display:block;">The date</span>
                   </div>
                   <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
                     <span style="font-weight:bold;">Venue:</span>
-                    <span style="display:block;">The venue</span>
+                    <span class="eventvenue" style="display:block;">The venue</span>
                   </div>
                   <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
                     <span style="font-weight:bold;">Time: </span>
-                    <span style="display:block;">The time</span>
+                    <span class="eventtime" style="display:block;">The time</span>
                   </div>
                   <div class="col-lg-6 col-sm-6 col-md-6 mb-2 event-subheading">
                     <span style="font-weight:bold;">Link:</span>
-                    <span style="display:block;">The link if any</span>
+                    <span class="eventlink" style="display:block;">The link if any</span>
                   </div>
 
                   <div class="col-lg-12 col-md-12 col-md-12">
@@ -128,8 +128,8 @@
 
           </div>
           <div class="text-right event-button">
-            <a class="btn btn-red typeform-share button" href="https://form.typeform.com/to/kX2o9C6n?typeform-medium=embed-snippet" data-mode="popup" data-size="100" target="_blank">Apply as participant </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
-            <a class="btn btn-red typeform-share button" href="https://form.typeform.com/to/kX2o9C6n?typeform-medium=embed-snippet" data-mode="popup" data-size="100" target="_blank">Apply as committee </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+            <a class="btn btn-red typeform-share button btn-prtcpnt" href="https://form.typeform.com/to/kX2o9C6n?typeform-medium=embed-snippet" data-mode="popup" data-size="100" target="_blank">Apply as participant </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+            <a class="btn btn-red typeform-share button btn-cmmtt" href="https://form.typeform.com/to/kX2o9C6n?typeform-medium=embed-snippet" data-mode="popup" data-size="100" target="_blank">Apply as committee </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
           </div>
         </div>
       </div>
@@ -144,21 +144,21 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <img
-                      class="event-slide-img"
+                      class="event-slide-img slide1"
                       src="news/img/1.jpg"
                       alt="news"
                     />
                   </div>
                   <div class="carousel-item">
                     <img
-                      class="event-slide-img"
+                      class="event-slide-img slide2"
                       src="news/img/2.jpg"
                       alt="news"
                     />
                   </div>
                   <div class="carousel-item">
                     <img
-                      class="event-slide-img"
+                      class="event-slide-img slide3"
                       src="news/img/3.jpg"
                       alt="news"
                     />
@@ -171,7 +171,7 @@
                       class="selected"
                       data-slide-to="0"
                       data-target="#imgCarousel"
-                      ><img class="img-fluid" src="news/img/1.jpg" alt=""
+                      ><img class="img-fluid ind1" src="news/img/1.jpg" alt=""
                     /></a>
                   </li>
                   <li class="list-inline-item">
@@ -179,7 +179,7 @@
                       id="carousel-selector-1"
                       data-slide-to="1"
                       data-target="#imgCarousel"
-                      ><img class="img-fluid" src="news/img/2.jpg" alt=""
+                      ><img class="img-fluid ind2" src="news/img/2.jpg" alt=""
                     /></a>
                   </li>
                   <li class="list-inline-item">
@@ -187,139 +187,17 @@
                       id="carousel-selector-2"
                       data-slide-to="2"
                       data-target="#imgCarousel"
-                      ><img class="img-fluid" src="news/img/3.jpg" alt=""
+                      ><img class="img-fluid ind3" src="news/img/3.jpg" alt=""
                     /></a>
                   </li>
                 </ol>
               </div>
               <div class="spacer mt-1"> </div>
-              <h4 class="mb-0">Feedback</h4>
-              <hr class="mt-1 dotted-ruler width-1">
-              <div class="px-5 mb-3">
-                <button class="btn btn-red btn-md mt-2" data-toggle="modal" data-target="#feedbackModal">Submit your feedback</button>
-              </div>
-              <div class="feedback-list" id="comments-logout"> 
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-3 feedback-profile">
-                        <span class="d-block text-gray-600 small mx-auto mb-2" >Udin Saleh</span>
-                        <img class="border rounded-circle img-profile avatar mx-auto" src="assets/img/profile.jpg"></a>
-                      </div>
-                      <div class="col-9">
-                        <div class="d-block">
-                          <span class="d-inline star">★</span>
-                          <span class="d-inline star">★</span>
-                          <span class="d-inline star">★</span>
-                          <span class="d-inline star">★</span>
-                          <span class="d-inline star">★</span>
-                          <p class="feedback-content mx-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Enim sed faucibus turpis in eu mi bibendum.
-                      Habitasse platea dictumst vestibulum rhoncus est.
-                      Amet purus gravida quis blandit turpis cursus in hac habitasse.
-                      Viverra ipsum nunc aliquet bibendum enim.</p>
-                          <span class="d-block text-gray-600 small text-right mr-3 mt-2">Posted on: 31 - 02 - 2069</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>               
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-3 feedback-profile">
-                        <span class="d-block text-gray-600 small mx-auto mb-2" >Udin Saleh</span>
-                        <img class="border rounded-circle img-profile avatar mx-auto" src="assets/img/profile.jpg"></a>
-                      </div>
-                      <div class="col-9">
-                        <div class="d-block">
-                          <span class="d-inline star">★</span>
-                          <span class="d-inline star">★</span>
-                          <span class="d-inline star">★</span>
-                          <span class="d-inline star">★</span>
-                          <span class="d-inline star">★</span>
-                          <p class="feedback-content mx-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Enim sed faucibus turpis in eu mi bibendum.
-                      Habitasse platea dictumst vestibulum rhoncus est.
-                      Amet purus gravida quis blandit turpis cursus in hac habitasse.
-                      Viverra ipsum nunc aliquet bibendum enim.</p>
-                          <span class="d-block text-gray-600 small text-right mr-3 mt-2">Posted on: 31 - 02 - 2069</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>               
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-3 feedback-profile">
-                        <span class="d-block text-gray-600 small mx-auto mb-2" >Udin Saleh</span>
-                        <img class="border rounded-circle img-profile avatar mx-auto" src="assets/img/profile.jpg"></a>
-                      </div>
-                      <div class="col-9">
-                        <div class="d-block">
-                          <span class="d-inline star">★</span>
-                          <span class="d-inline star">★</span>
-                          <span class="d-inline star">★</span>
-                          <span class="d-inline star">★</span>
-                          <span class="d-inline star">★</span>
-                          <p class="feedback-content mx-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Enim sed faucibus turpis in eu mi bibendum.
-                      Habitasse platea dictumst vestibulum rhoncus est.
-                      Amet purus gravida quis blandit turpis cursus in hac habitasse.
-                      Viverra ipsum nunc aliquet bibendum enim.</p>
-                          <span class="d-block text-gray-600 small text-right mr-3 mt-2">Posted on: 31 - 02 - 2069</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>               
-              </div>
             </div>
         </div>
       </div>
     </div>
 </section>
-
-<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header border-bottom-0">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <div class="form-title text-center">
-            <h4>Give your feedback</h4>
-          </div>
-          <div class="d-flex flex-column text-center">
-            <form action="">
-              <div class="rate">
-                <input type="radio" name="rate" value="5" id="star5">
-                <label for="star5" title="text"></label>
-                <input type="radio" name="rate" value="4" id="star4">
-                <label for="star4" title="text"></label>
-                <input type="radio" name="rate" value="3" id="star3">
-                <label for="star3" title="text"></label>
-                <input type="radio" name="rate" value="2" id="star2">
-                <label for="star2" title="text"></label>
-                <input type="radio" name="rate" value="1" id="star1">
-                <label for="star1" title="text"></label>
-              </div>
-              <div class="form-group">
-                <textarea name="feedback" cols="30" rows="10" placeholder="Enter your feedback here"></textarea>
-              </div>
-              <input type="submit" class="btn btn-std btn-block btn-round" value="Submit">
-            </form>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
 
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -365,8 +243,69 @@
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function(){
+    const query= window.location.search.split('id=')[1];
+    $.ajax({
+      type: "GET",
+      url: "../assets/php/event/get_event.php",
+      dataType: "json",
+      success: function(data, status, xhr) {
+        
+        console.log(data.length);
+        let eventList='';
+        currentDate= new Date();
+        for(let i=0; i<data.length; i++){
+          if(data[i].event_id==query){
+            let json=data[i];
+            $('.event-title').html(json.event_title);
+            $('.event-category').html(json.event_category);
+            $('.eventdate').html(json.event_date);
+            $('.eventvenue').html(json.event_venue);
+            $('.event-desc').html(json.event_details);
+            $('.event-card-img').attr("src", "../assets/img/"+json.event_pic1);
+            // if(json.open_for==="Participants"){
+            //     $('.btn-prtcpnt').attr("href", json.event_url);
+            //     $('.btn-cmmtt').hide();
+            // }
+            // else_if(json.open_for==="Committee"){
+            //     $('.btn-cmmtt').attr("href", json.event_url);
+            //     $('.btn-prtcpnt').hide();
+            // }
+            let regdate=new Date(json.closed_on);
+            if(currentDate>regdate){
+              
+            }
+            if(json.event_pic2!=null){
+              $('.slide2').attr("src", "../assets/img/"+json.event_pic2);
+              $('.ind2').attr("src", "../assets/img/"+json.event_pic2);
+            }
+            else{
+              $('.slide2').parent().remove();
+              $('.ind2').parent().parent().remove();
+            }
+            if(json.event_pic3!=null){
+              $('.slide3').attr("src", "../assets/img/"+json.event_pic3);
+              $('.ind3').attr("src", "../assets/img/"+json.event_pic3);
+            }
+            else{
+              $('.slide3').parent().remove();
+              $('.ind3').parent().parent().remove();
+            }
+
+          }
+        }
+        
+      },
+      error: function() {
+        alert(status);
+      }
+    })
+  })
+</script>
 <script src="js/script.js"></script>
 </body>
 

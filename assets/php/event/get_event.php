@@ -9,9 +9,9 @@
         $db = $db->connect();
         
         $stmt = $db->query($sql);
-        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $event = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
-        $obj = json_encode($user);
+        $obj = json_encode($event);
         echo $obj;
     } catch (PDOException $e) {
         $data = array(

@@ -13,6 +13,9 @@ if(!empty($_GET['cms'])){
             } else if ($_GET['act'] == 'news') {
                 include 'views/post/add_news.php';
             }
+             else if ($_GET['act'] == 'update') {
+                include 'views/post/updateevent.php';
+            }
         } else {
             include 'views/post/table.php';
         }

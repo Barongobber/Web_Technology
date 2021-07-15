@@ -2,12 +2,12 @@
 <div class="d-sm-flex justify-content-between align-items-center mb-12">
     <div class="mb-9">
         <ul class="nav nav-tabs">
-            <li><button id="dash-1" class="btn active" onclick="allContent();" href="#dashboard-1" data-toggle="tab">All</a></li>
-            <li><button id="dash-2" class="btn " onclick="newsContent();" href="#dashboard-2" data-toggle="tab">News</a></li>
-            <li><button id="dash-3" class="btn" onclick="opregContent();" href="#dashboard-3" data-toggle="tab">Event Registration</a></li>
+            <!-- <li><button id="dash-1" class="btn active" onclick="allContent();" href="#dashboard-1" data-toggle="tab">All</a></li>
+            <li><button id="dash-2" class="btn " onclick="newsContent();" href="#dashboard-2" data-toggle="tab">News</a></li> -->
+            <li><button id="dash-3" class="btn active" onclick="opregContent();" href="#dashboard-3" data-toggle="tab">Event Registration</a></li>
         </ul>
     </div>
-    <a class="btn btn-primary btn-sm d-none d-sm-inline-block btnMove mb-3" href="#" data-toggle="modal" data-target="#addPostModal"  style="background: rgb(230,32,43);border-color: rgb(230,32,43); margin-bottom:0px;"><i class="fa fa-plus fa-sm text-white-50"></i>&nbsp;Add Post</a>
+    <a onload="clickD3()" class="btn btn-primary btn-sm d-none d-sm-inline-block btnMove mb-3" href="#" data-toggle="modal" data-target="#addPostModal"  style="background: rgb(230,32,43);border-color: rgb(230,32,43); margin-bottom:0px;"><i class="fa fa-plus fa-sm text-white-50"></i>&nbsp;Add Post</a>
 </div>
 <div class="card shadow">
     <div class="tabbable">
@@ -56,3 +56,8 @@
         </div>
     </div>
 </div>
+<script>
+    function clickD3(){
+        document.querySelector('#dash-3').click();
+    }
+</script>
