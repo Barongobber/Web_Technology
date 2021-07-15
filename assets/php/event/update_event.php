@@ -1,23 +1,26 @@
 <?php
     require_once '../db.php';
 
-    $inputJSON = file_get_contents('php://input');
+    $inputJSON = $_POST['json'];
+    $img1name= $_FILES['img1']['name'];
+    $img2name= $_FILES['img2']['name'];
+    $img3name= $_FILES['img3']['name'];
     $input = json_decode($inputJSON, TRUE);
+
     
     $event_title = $input["event_title"];
     $event_category = $input["event_category"];
     $event_venue = $input["event_venue"];
-    $posted_on = $input["posted_on"];
     $open_for = $input["open_for"];
     $closed_on = $input["closed_on"];
     $event_details = $input["event_details"];
     $event_url = $input["event_url"];
     $event_date = $input["event_date"];
-    $event_pic1 = $input["event_pic1"];
-    $event_pic2 = $input["event_pic2"];
-    $event_pic3 = $input["event_pic3"];
+    $event_pic1 = $img1name;
+    $event_pic2 = $img2name;
+    $event_pic3 = $img3name;
 
-    $id = $_GET['id'];
+    $id = $input["event_id"];
 
     try {
 
@@ -25,47 +28,83 @@
                     event_title 	= :event_title,
                     event_category 	= :event_category,
                     event_venue = :event_venue,
-                    posted_on 	= :posted_on,
                     open_for 	= :open_for,
                     closed_on 	= :closed_on,
                     event_details 	= :event_details,
                     event_url 	= :event_url,
                     event_date 	= :event_date,
-                    event_pic1 	= :event_pic1,
-                    event_pic2 	= :event_pic2,
+                    event_pic1 	= :event_pic1
+                WHERE event_id = $id";
+        
+        $sql2 = "UPDATE event SET
+                    event_pic2 	= :event_pic2
+                WHERE event_id = $id";
+        $sql3 = "UPDATE event SET
                     event_pic3 	= :event_pic3
                 WHERE event_id = $id";
+        
 
         $db = new db();
         
         $db = $db->connect();
-
+        if ( 0 < $_FILES['img1']['error'] ) {
+            echo 'Error: ' . $_FILES['img1']['error'] . '<br>';
+        }
+        else {
+            move_uploaded_file($_FILES['img1']['tmp_name'], '../../img/' . $_FILES['img1']['name']);
+        }
+        if ( 0 < $_FILES['img2']['error'] ) {
+            echo 'Error: ' . $_FILES['img2']['error'] . '<br>';
+        }
+        else {
+            move_uploaded_file($_FILES['img2']['tmp_name'], '../../img/' . $_FILES['img2']['name']);
+        }
+        if ( 0 < $_FILES['img3']['error'] ) {
+            echo 'Error: ' . $_FILES['img3']['error'] . '<br>';
+        }
+        else {
+            move_uploaded_file($_FILES['img3']['tmp_name'], '../../img/' . $_FILES['img3']['name']);
+        }
         $stmt = $db->prepare($sql);
+
         
 
-        $stmt->bindParam(':event_title', $event_title);
-        $stmt->bindParam(':event_category',$event_category);
-        $stmt->bindParam(':event_venue', $event_venue);
-        $stmt->bindParam(':posted_on', $posted_on);
-        $stmt->bindParam(':open_for', $open_for);
-        $stmt->bindParam(':closed_on', $closed_on);
-        $stmt->bindParam(':event_details', $event_details);
-        $stmt->bindParam(':event_url', $event_url);
-        $stmt->bindParam(':event_date', $event_date);
-        $stmt->bindParam(':event_pic1', $event_pic1);
-        $stmt->bindParam(':event_pic2', $event_pic2);
-        $stmt->bindParam(':event_pic3', $event_pic3);
-
+        $stmt->bindValue(':event_title', $event_title);
+        $stmt->bindValue(':event_category',$event_category);
+        $stmt->bindValue(':event_venue', $event_venue);
+        $stmt->bindValue(':posted_on', $posted_on);
+        $stmt->bindValue(':open_for', $open_for);
+        $stmt->bindValue(':closed_on', $closed_on);
+        $stmt->bindValue(':event_details', $event_details);
+        $stmt->bindValue(':event_url', $event_url);
+        $stmt->bindValue(':event_date', $event_date);
+        $stmt->bindValue(':event_pic1', $event_pic1);
         $stmt->execute();
         $count = $stmt->rowCount();
+        if ($_FILES['img2']['size'] == 0)
+        {
+            $stmt2=$db->prepare($sql2);
+            $stmt2->bindValue(':event_pic2', $event_pic2);
+            $stmt2->execute();
+            $count2 = $stmt2->rowCount();
+        }
+        if ($_FILES['img3']['size'] == 0)
+        {
+            $stmt3=$db->prepare($sql3);
+            $stmt3->bindValue(':event_pic3', $event_pic3);
+            $stmt3->execute();
+            $count3 = $stmt3->rowCount();
+        }
+        
+
         $db = null;
-    
+        
         $data = array(
             "status" => "success",
             "rowcount" =>$count
         );
 
-        echo json_encode($data);
+        echo json_encode($input);
 
         } catch (PDOException $e) {
         

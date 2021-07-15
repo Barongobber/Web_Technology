@@ -78,19 +78,19 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Picture 1<span style="color: red;">*</span></label>
                             <div class="col-sm-9">
-                                <input type="submit" class="btn btn-primary" value="Upload Picture" name="" id="">
+                                <input type="file" class="btn btn-primary" value="Upload Picture" name="" id="pic1">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="contact-province" class="col-sm-3 col-form-label">Picture 2</label>
                             <div class="col-sm-9">
-                                <input type="submit" class="btn btn-primary" value="Upload Picture" name="" id="">
+                                <input type="file" class="btn btn-primary" value="Upload Picture" name="" id="pic2">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="contact-city" class="col-sm-3 col-form-label">Picture 3</label>
                             <div class="col-sm-9">
-                                <input type="submit" class="btn btn-primary" value="Upload Picture" name="" id="">
+                                <input type="file" class="btn btn-primary" value="Upload Picture" name="" id="pic3">
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
             <div class="card-footer">
                 <div class="text-right ">
                     <button type="button" class="btn btn-danger btn-shadow" onclick="window.location.href='?cms=content_management'">Cancel</button>
-                    <button type="submit" class="btn btn-success btn-shadow">Submit</button>
+                    <button type="submit" id="updateEvent" class="btn btn-success btn-shadow">Update Event</button>
                 </div>
             </div>
         </div>
@@ -137,5 +137,55 @@
         alert(status);
       }
     })
+  });
+  
+</script>
+<script>
+    $('#updateEvent').click(function(){
+    const query= window.location.search.split('id=')[1];
+    const input={};
+    input.event_id=query;
+    input.event_title=document.getElementById('event-title').value;
+    input.event_date=document.getElementById('event-date').value;
+    input.closed_on=document.getElementById('closed-date').value;
+    input.event_venue=document.getElementById('event-venue').value;
+    input.event_url=document.getElementById('event-link').value;
+    input.event_details=document.getElementById('event-details').value;
+    
+    category=document.getElementById('event-category');
+    input.event_category=category.options[category.selectedIndex].text;
+    openfor=document.getElementById('open-for');
+    input.open_for=openfor.options[openfor.selectedIndex].text;
+    const json= JSON.stringify(input);
+    
+    const img1=$('#pic1')[0].files[0];
+    const img2=$('#pic2')[0].files[0];
+    const img3=$('#pic3')[0].files[0];
+    const data=new FormData();
+    data.append('img1', img1);
+    data.append('json', json);
+    data.append('img2', img2);
+    data.append('img3', img3);
+    
+    console.log(json);
+    
+    $.ajax({
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            // dataType: 'json',           
+            url: '../../webtech/assets/php/event/update_event.php',
+            mimeType: 'multipart/form-data',
+            data: data,
+            success: function(data, status, xhr){
+                // window.location.href = '../../webtech/utm_connect.php?cms=content_management';
+                console.log(data);
+            }
+            ,error: function(data){
+                alert(data);
+            }
+            
+        })
   })
 </script>
