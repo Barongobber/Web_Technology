@@ -27,7 +27,7 @@
                             <div class="col-sm-9">
                                 <select id="category" class="form-control">
                                     <option value="" selected>Choose Category</option>
-                                    <option value="Sports">Sports</option>
+                                    <option value="Sport">Sports</option>
                                     <option value="Academic">Academic</option>
                                     <option value="Arts or Music">Arts or Music</option>
                                     <option value="Strategic Studies">Strategic Studies</option>
@@ -50,7 +50,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Venue<span style="color: red;">*</span></label>
                             <div class="col-sm-9">
-                                <input type="number" id="venue" class="form-control" placeholder="Write event's venue here">
+                                <input type="text" id="venue" class="form-control" placeholder="Write event's venue here">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -108,12 +108,13 @@
 
 <script>
     $('#submit').click(() => {
-        event.preventDefault;
+        event.preventDefault();
 
+        // alert("coba");
         let title = $('#title').val();
         let category = $('#category').val();
         let closedDate = $('#closedDate').val();
-        let eventDate = $('#eventData').val();
+        let eventDate = $('#eventDate').val();
         let venue = $('#venue').val();
         let openFor = $('#openFor').val();
         let formUrl = $('#formUrl').val();
@@ -121,28 +122,36 @@
         let pic1 = 'e3pic1.png';
         let pic2 = $('#pic2').val();
         let pic3 = $('#pic3').val();
+        // let posted_on = date("Y-m-d");
 
-        $.ajax({
-            type: "POST",
-            contentType: "application/json",
-            url: "../../Web_Technology/assets/php/event/insert_event.php",
-            data: JSON.stringify({
-                event_title: title,
-                event_category: category,
-                closed_on: closedDate,
-                event_date: eventDate,
-                event_venue: venue,
-                open_for: openFor,
-                event_url: formUrl,
-                event_details: eventDetails,
-                event_pic1: pic1,
-                event_pic2: pic2,
-                event_pic3: pic3
-            }),
-            success: (resp) => {
-                console.log(resp);
-                window.location.href = '../../Web_Technology/utm_connect.php?cms=content_management';
-            }
-        })
+        if(confirm("Are you sure all data is correct?")){
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "../../Web_Technology/assets/php/event/insert_event.php",
+                data: JSON.stringify({
+                    event_title: title,
+                    event_category: category,
+                    closed_on: closedDate,
+                    event_date: eventDate,
+                    event_venue: venue,
+                    open_for: openFor,
+                    event_url: formUrl,
+                    event_details: eventDetails,
+                    event_pic1: pic1,
+                    event_pic2: pic2,
+                    event_pic3: pic3
+                }),
+                success: (resp) => {
+                    // console.log(resp);
+                    // alert(resp);
+                    window.location.href = '../../Web_Technology/utm_connect.php?cms=content_management';
+                }
+            })
+        } else {
+            alert("Input failed!");
+            window.location.href = '../../Web_Technology/utm_connect.php?cms=content_management&act=event';
+        }
+        // alert(eventDate+ " " + closedDate);
     });
 </script>

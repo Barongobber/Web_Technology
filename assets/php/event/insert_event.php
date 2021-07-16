@@ -6,7 +6,7 @@
     $event_title = $input["event_title"];
     $event_category = $input["event_category"];
     $event_venue = $input["event_venue"];
-    $posted_on = $input["posted_on"];
+    $posted_on = date("Y-m-d");
     $open_for = $input["open_for"];
     $closed_on = $input["closed_on"];
     $event_details = $input["event_details"];
@@ -15,7 +15,7 @@
     $event_pic1 = $input["event_pic1"];
     $event_pic2 = $input["event_pic2"];
     $event_pic3 = $input["event_pic3"];
-    $created_at = $input["created_at"];
+    $created_at = date("Y-m-d");
     $updated_at = $input["updated_at"];
     $deleted_at = $input["deleted_at"];
 
