@@ -31,9 +31,9 @@
           <li class="nav-item">
             <a class="nav-link" href="index.php">Home</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#news">News</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="events.php">Events</a>
           </li>
@@ -128,9 +128,8 @@
 
           </div>
           <div class="text-right event-button">
-            <a class="btn btn-red typeform-share button btn-prtcpnt" href="https://form.typeform.com/to/kX2o9C6n?typeform-medium=embed-snippet" data-mode="popup" data-size="100" target="_blank">Apply as participant </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
-            <a class="btn btn-red typeform-share button btn-cmmtt" href="https://form.typeform.com/to/kX2o9C6n?typeform-medium=embed-snippet" data-mode="popup" data-size="100" target="_blank">Apply as committee </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
-          </div>
+            <a class="btn btn-red typeform-share button btn-join" href="https://form.typeform.com/to/kX2o9C6n?typeform-medium=embed-snippet" data-mode="popup" data-size="100" target="_blank">Apply as participant </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+            </div>
         </div>
       </div>
 <!-- For past events- Documentation and Feedback -->
@@ -142,54 +141,11 @@
               <hr class="mt-1 dotted-ruler width-1">
               <div id="imgCarousel" class="carousel slide event-slide" data-ride="carousel">
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="event-slide-img slide1"
-                      src="news/img/1.jpg"
-                      alt="news"
-                    />
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="event-slide-img slide2"
-                      src="news/img/2.jpg"
-                      alt="news"
-                    />
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="event-slide-img slide3"
-                      src="news/img/3.jpg"
-                      alt="news"
-                    />
-                  </div>
+                  
                 </div>
                 <ol class="carousel-indicators list-inline">
-                  <li class="list-inline-item active">
-                    <a
-                      id="carousel-selector-0"
-                      class="selected"
-                      data-slide-to="0"
-                      data-target="#imgCarousel"
-                      ><img class="img-fluid ind1" src="news/img/1.jpg" alt=""
-                    /></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      id="carousel-selector-1"
-                      data-slide-to="1"
-                      data-target="#imgCarousel"
-                      ><img class="img-fluid ind2" src="news/img/2.jpg" alt=""
-                    /></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      id="carousel-selector-2"
-                      data-slide-to="2"
-                      data-target="#imgCarousel"
-                      ><img class="img-fluid ind3" src="news/img/3.jpg" alt=""
-                    /></a>
-                  </li>
+                  
+                  
                 </ol>
               </div>
               <div class="spacer mt-1"> </div>
@@ -257,7 +213,7 @@
         
         console.log(data.length);
         let eventList='';
-        currentDate= new Date();
+        let currentDate= new Date();
         for(let i=0; i<data.length; i++){
           if(data[i].event_id==query){
             let json=data[i];
@@ -267,35 +223,41 @@
             $('.eventvenue').html(json.event_venue);
             $('.event-desc').html(json.event_details);
             $('.event-card-img').attr("src", "../assets/img/"+json.event_pic1);
-            // if(json.open_for==="Participants"){
-            //     $('.btn-prtcpnt').attr("href", json.event_url);
-            //     $('.btn-cmmtt').hide();
-            // }
-            // else_if(json.open_for==="Committee"){
-            //     $('.btn-cmmtt').attr("href", json.event_url);
-            //     $('.btn-prtcpnt').hide();
-            // }
+            $('.btn-join').attr("href", json.event_url);
+            if(json.open_for=="Participants"){
+                $('.btn-join').html('Apply as Participant');
+            }
+            else if(json.open_for=="Committee"){
+                $('.btn-join').html('Apply as Committee');
+            }
             let regdate=new Date(json.closed_on);
-            if(currentDate>regdate){
-              
+            console.log(regdate);
+            if (currentDate > regdate) {
+              $('.btn-join').parent().html('<strong>Event registration period has ended</strong>');
+              $('.btn-join').remove();
             }
+            let carouselPic='<div class=\"carousel-item active\"><img class=\"event-slide-img slide1\" src=\"../assets/img/'+json.event_pic1+'\" alt=\"news\"/></div>';
+            let carouselInd='<li class=\"list-inline-item active mb-5\"><a id=\"carousel-selector-0\" class=\"selected\" data-slide-to=\"0\" data-target=\"#imgCarousel\"><img class=\"img-fluid ind1\" src=\"../assets/img/'+json.event_pic1+'\"/></a></li>';
+            console.log(carouselPic);
+            console.log(carouselInd);
             if(json.event_pic2!=null){
-              $('.slide2').attr("src", "../assets/img/"+json.event_pic2);
-              $('.ind2').attr("src", "../assets/img/"+json.event_pic2);
+              carouselPic+='<div class=\"carousel-item\"><img class=\"event-slide-img slide2\" src=\"../assets/img/'+json.event_pic2+'\" alt=\"news\"/></div>';
+              carouselInd+='<li class=\"list-inline-item active mb-5 mx-3\"><a id=\"carousel-selector-1\" class=\"selected\" data-slide-to=\"1\" data-target=\"#imgCarousel\"><img class=\"img-fluid ind2\" src=\"../assets/img/'+json.event_pic2+'\"/></a></li>';
+              if(json.event_pic3!=null){
+                carouselPic+='<div class=\"carousel-item\"><img class=\"event-slide-img slide3\" src=\"../assets/img/'+json.event_pic3+'\" alt=\"news\"/></div>';
+                carouselInd+='<li class=\"list-inline-item active mb-5 mx-3\"><a id=\"carousel-selector-2\" class=\"selected\" data-slide-to=\"2\" data-target=\"#imgCarousel\"><img class=\"img-fluid ind2\" src=\"../assets/img/'+json.event_pic3+'\"/></a></li>';
+              }
             }
             else{
-              $('.slide2').parent().remove();
-              $('.ind2').parent().parent().remove();
+              if(json.event_pic3!=null){
+                carouselPic+='<div class=\"carousel-item\"><img class=\"event-slide-img slide2\" src=\"../assets/img/'+json.event_pic3+'\" alt=\"news\"/></div>';
+                carouselInd+='<li class=\"list-inline-item active mb-5 mx-3\"><a id=\"carousel-selector-1\" class=\"selected\" data-slide-to=\"1\" data-target=\"#imgCarousel\"><img class=\"img-fluid ind2\" src=\"../assets/img/'+json.event_pic3+'\"/></a></li>';
+              }
             }
-            if(json.event_pic3!=null){
-              $('.slide3').attr("src", "../assets/img/"+json.event_pic3);
-              $('.ind3').attr("src", "../assets/img/"+json.event_pic3);
-            }
-            else{
-              $('.slide3').parent().remove();
-              $('.ind3').parent().parent().remove();
-            }
+            
 
+            $('.carousel-inner').html(carouselPic);
+            $('.carousel-indicators').html(carouselInd);
           }
         }
         

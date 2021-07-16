@@ -32,10 +32,12 @@
                     closed_on 	= :closed_on,
                     event_details 	= :event_details,
                     event_url 	= :event_url,
-                    event_date 	= :event_date,
-                    event_pic1 	= :event_pic1
+                    event_date 	= :event_date
                 WHERE event_id = $id";
         
+        $sql1 = "UPDATE event SET
+                    event_pic1 	= :event_pic1
+                WHERE event_id = $id";
         $sql2 = "UPDATE event SET
                     event_pic2 	= :event_pic2
                 WHERE event_id = $id";
@@ -72,28 +74,33 @@
         $stmt->bindValue(':event_title', $event_title);
         $stmt->bindValue(':event_category',$event_category);
         $stmt->bindValue(':event_venue', $event_venue);
-        $stmt->bindValue(':posted_on', $posted_on);
         $stmt->bindValue(':open_for', $open_for);
         $stmt->bindValue(':closed_on', $closed_on);
         $stmt->bindValue(':event_details', $event_details);
         $stmt->bindValue(':event_url', $event_url);
         $stmt->bindValue(':event_date', $event_date);
-        $stmt->bindValue(':event_pic1', $event_pic1);
         $stmt->execute();
         $count = $stmt->rowCount();
-        if ($_FILES['img2']['size'] == 0)
+        if ($_FILES['img1']['size'] != 0)
         {
-            $stmt2=$db->prepare($sql2);
-            $stmt2->bindValue(':event_pic2', $event_pic2);
-            $stmt2->execute();
-            $count2 = $stmt2->rowCount();
+            $stmt=$db->prepare($sql1);
+            $stmt->bindValue(':event_pic1', $event_pic1);
+            $stmt->execute();
+            $count2 = $stmt->rowCount();
         }
-        if ($_FILES['img3']['size'] == 0)
+        if ($_FILES['img2']['size'] != 0)
         {
-            $stmt3=$db->prepare($sql3);
-            $stmt3->bindValue(':event_pic3', $event_pic3);
-            $stmt3->execute();
-            $count3 = $stmt3->rowCount();
+            $stmt=$db->prepare($sql2);
+            $stmt->bindValue(':event_pic2', $event_pic2);
+            $stmt->execute();
+            $count2 = $stmt->rowCount();
+        }
+        if ($_FILES['img3']['size'] != 0)
+        {
+            $stmt=$db->prepare($sql3);
+            $stmt->bindValue(':event_pic3', $event_pic3);
+            $stmt->execute();
+            $count = $stmt->rowCount();
         }
         
 

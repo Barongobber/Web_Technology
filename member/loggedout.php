@@ -21,7 +21,7 @@
 </head>
 
 <body>
-  <section id="navMenu">
+<section id="navMenu">
     <nav class="nav-head navbar fixed-top navbar-expand-lg navbar-dark">
       <a class="navbar-brand" href="index.php"><img src="assets/icon/android-icon-72x72.png" /> UTM CONNECT</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,9 +32,9 @@
           <li class="nav-item">
             <a class="nav-link" href="index.php">Home</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#news">News</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="events.php">Events</a>
           </li>
@@ -49,12 +49,23 @@
             </div>
           </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <button type="button" class="btn btn-std btn-round btn-login" data-toggle="modal" data-target="#loginModal">
-              Login
-            </button>
-          </li>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown no-arrow">
+                <div class="nav-item dropdown no-arrow">
+                  <a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#">
+                    <span class="d-block d-lg-inline mr-2 text-gray-600 small" >Udin Saleh</span>
+                    <div class="d-lg-none dropdown-divider"></div>
+                    <img class="border rounded-circle img-profile avatar" src="assets/img/profile.jpg"></a>
+                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
+                      <a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                      <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                      <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                      <a class="dropdown-item" href="../"><i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Go to Management Side</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="loggedout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                    </div>
+                </div>
+            </li>
         </ul>
       </div>
     </nav>
@@ -117,7 +128,7 @@
       </div>
 
   </section>
-  <section id="news">
+  <!-- <section id="news">
     <div class="container-fluid content-container">
       <div class="content-subheading-container">
         <div class="content-subheading">
@@ -224,7 +235,7 @@
 
         <button class="btn btn-news-preview btn-lg btn-block">See all news</button>
     </div>
-  </section>
+  </section> -->
 
   <section id="events">
       <div class="container-fluid content-container">

@@ -35,99 +35,55 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <section id="navMenu">
-      <nav class="nav-head navbar fixed-top navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="index.php"
-          ><img src="assets/icon/android-icon-72x72.png" /> UTM CONNECT</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.php">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#news">News</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="events.php">Events</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="academic.php">Academic</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                href="#"
-                >Organization</a
-              >
-              <div class="dropdown-menu animated--grow-in">
-                <a href="" class="dropdown-item">Divison</a>
-                <a href="" class="dropdown-item">Aspiration</a>
-              </div>
-            </li>
-          </ul>
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown no-arrow">
-              <div class="nav-item dropdown no-arrow">
-                <a
-                  class="dropdown-toggle nav-link"
-                  aria-expanded="false"
-                  data-toggle="dropdown"
-                  href="#"
-                >
-                  <span class="d-block d-lg-inline mr-2 text-gray-600 small"
-                    >Udin Saleh</span
-                  >
-                  <div class="d-lg-none dropdown-divider"></div>
-                  <img
-                    class="border rounded-circle img-profile avatar"
-                    src="assets/img/profile.jpg"
-                /></a>
-                <div
-                  class="dropdown-menu shadow dropdown-menu-right animated--grow-in"
-                >
-                  <a class="dropdown-item" href="profile.php"
-                    ><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i
-                    >&nbsp;Profile</a
-                  >
-                  <a class="dropdown-item" href="#"
-                    ><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i
-                    >&nbsp;Settings</a
-                  >
-                  <a class="dropdown-item" href="#"
-                    ><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i
-                    >&nbsp;Activity log</a
-                  >
-                  <a class="dropdown-item" href="../"
-                    ><i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i
-                    >&nbsp;Go to Management Side</a
-                  >
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="loggedout.php"
-                    ><i
-                      class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
-                    ></i
-                    >&nbsp;Logout</a
-                  >
+  <section id="navMenu">
+    <nav class="nav-head navbar fixed-top navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="index.php"><img src="assets/icon/android-icon-72x72.png" /> UTM CONNECT</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Home</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#news">News</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="events.php">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="academic.php">Academic</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Organization</a>
+            <div class="dropdown-menu animated--grow-in">
+              <a href="" class="dropdown-item">Divison</a>
+              <a href="" class="dropdown-item">Aspiration</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown no-arrow">
+                <div class="nav-item dropdown no-arrow">
+                  <a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#">
+                    <span class="d-block d-lg-inline mr-2 text-gray-600 small" >Udin Saleh</span>
+                    <div class="d-lg-none dropdown-divider"></div>
+                    <img class="border rounded-circle img-profile avatar" src="assets/img/profile.jpg"></a>
+                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
+                      <a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                      <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                      <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                      <a class="dropdown-item" href="../"><i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Go to Management Side</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="loggedout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                    </div>
                 </div>
-              </div>
             </li>
-          </ul>
-        </div>
-      </nav>
-    </section>
+        </ul>
+      </div>
+    </nav>
+  </section>
 
     <!---
 Insert Here

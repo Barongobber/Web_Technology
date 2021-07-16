@@ -33,9 +33,9 @@
           <li class="nav-item">
             <a class="nav-link" href="index.php">Home</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#news">News</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="events.php">Events</a>
           </li>

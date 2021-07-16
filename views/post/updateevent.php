@@ -78,7 +78,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Picture 1<span style="color: red;">*</span></label>
                             <div class="col-sm-9">
-                                <input type="file" class="btn btn-primary" value="Upload Picture" name="" id="pic1">
+                                <input type="file" class="btn btn-primary" value="Upload Picture" name="" id="pic1" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -111,7 +111,7 @@
         console.log(query);
         $.ajax({
             type: "GET",
-            url: "../../Web_Techology/assets/php/event/get_event.php",
+            url: "../../Web_Technology/assets/php/event/get_event.php",
             dataType: "json",
             success: function(data, status, xhr) {
 

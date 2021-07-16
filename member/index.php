@@ -32,9 +32,9 @@
           <li class="nav-item">
             <a class="nav-link" href="index.php">Home</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#news">News</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="events.php">Events</a>
           </li>
@@ -129,7 +129,7 @@
       </div>
 
   </section>
-  <section id="news">
+  <!-- <section id="news">
     <div class="container-fluid content-container">
       <div class="content-subheading-container">
         <div class="content-subheading">
@@ -236,9 +236,9 @@
 
         <button class="btn btn-news-preview btn-lg btn-block">See all news</button>
     </div>
-  </section>
+  </section> -->
 
-  <section id="events">
+  <section id="news" class="pb-5">
       <div class="container-fluid content-container">
         <div class="content-subheading-container">
           <div class="content-subheading">
@@ -248,178 +248,8 @@
         </div>
       </div>
       <div id="carouselEvent" class="carousel slide" data-ride="carousel" data-interval="10000" data-pause="hover">
-        <div class="carousel-inner">
-          <div class="event-item carousel-item active">
-            <div class="row event-preview-row">
-              <div class="col-lg-4 event-preview-column">
-                <div class="card">
-                  <div class="card-header event-header">
-                    <h4 class="event-title"><a href="">Event</a></h4>
+        <div class="carousel-inner event-carousel">
 
-                  </div>
-                  <div class="card-body event-body">
-                      <img class="img-fluid" src="events/img/event.jpg" alt="">
-                      <div class="event-description">
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                            <span style="font-weight:bold;">Date: </span>
-                            <span style="display:block;">The date</span>
-                          </div>
-                          <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                            <span style="font-weight:bold;">Venue:</span>
-                            <span style="display:block;">The venue</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="text-right">
-                        <a href=""><button class="btn btn-red">Check out event</button></a>
-                      </div>
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-lg-4 event-preview-column">
-                <div class="card">
-                  <div class="card-header event-header">
-                    <h4 class="event-title"><a href="">Event</a></h4>
-
-                  </div>
-                  <div class="card-body event-body">
-                      <img class="img-fluid" src="events/img/musicevent.jpg" alt="">
-                      <div class="event-description">
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                            <span style="font-weight:bold;">Date: </span>
-                            <span style="display:block;">The date</span>
-                          </div>
-                          <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                            <span style="font-weight:bold;">Venue:</span>
-                            <span style="display:block;">The venue</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="text-right">
-                        <a href=""><button class="btn btn-red">Check out event</button></a>
-                      </div>
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-lg-4 event-preview-column">
-                <div class="card">
-                  <div class="card-header event-header">
-                    <h4 class="event-title"><a href="">Event</a></h4>
-
-                  </div>
-                  <div class="card-body event-body">
-                      <img class="img-fluid" src="events/img/event.jpg" alt="">
-                      <div class="event-description">
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                            <span style="font-weight:bold;">Date: </span>
-                            <span style="display:block;">The date</span>
-                          </div>
-                          <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                            <span style="font-weight:bold;">Venue:</span>
-                            <span style="display:block;">The venue</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="text-right">
-                        <a href=""><button class="btn btn-red">Check out event</button></a>
-                      </div>
-                    </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="event-item carousel-item">
-            <div class="row event-preview-row">
-              <div class="col-lg-4 event-preview-column">
-                <div class="card">
-                  <div class="card-header event-header">
-                    <h4 class="event-title"><a href="">Event</a></h4>
-
-                  </div>
-                  <div class="card-body event-body">
-                      <img class="img-fluid" src="events/img/musicevent.jpg" alt="">
-                      <div class="event-description">
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                            <span style="font-weight:bold;">Date: </span>
-                            <span style="display:block;">The date</span>
-                          </div>
-                          <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                            <span style="font-weight:bold;">Venue:</span>
-                            <span style="display:block;">The venue</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="text-right">
-                        <a href=""><button class="btn btn-red">Check out event</button></a>
-                      </div>
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-lg-4 event-preview-column">
-                <div class="card">
-                  <div class="card-header event-header">
-                    <h4 class="event-title"><a href="">Event</a></h4>
-
-                  </div>
-                  <div class="card-body event-body">
-                      <img class="img-fluid" src="events/img/event.jpg" alt="">
-                      <div class="event-description">
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                            <span style="font-weight:bold;">Date: </span>
-                            <span style="display:block;">The date</span>
-                          </div>
-                          <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                            <span style="font-weight:bold;">Venue:</span>
-                            <span style="display:block;">The venue</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="text-right">
-                          <a href=""><button class="btn btn-red">Check out event</button></a>
-                      </div>
-                      </div>
-
-                </div>
-              </div>
-              <div class="col-lg-4 event-preview-column">
-                <div class="card">
-                  <div class="card-header event-header">
-                    <h4 class="event-title"><a href="">Event</a></h4>
-
-                  </div>
-                  <div class="card-body event-body">
-                      <img class="img-fluid" src="events/img/musicevent.jpg" alt="">
-                      <div class="event-description">
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                            <span style="font-weight:bold;">Date: </span>
-                            <span style="display:block;">The date</span>
-                          </div>
-                          <div class="col-lg-6 col-sm-6 col-md-6 event-subheading">
-                            <span style="font-weight:bold;">Venue:</span>
-                            <span style="display:block;">The venue</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="text-right">
-                          <a href=""><button class="btn btn-red">Check out event</button></a>
-                      </div>
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
           </div>
             <a class="carousel-control-prev" href="#carouselEvent" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -479,8 +309,52 @@
   </div>
 </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+  <script>
+$(document).ready(function(){
+    $.ajax({
+      type: "GET",
+      url: "../assets/php/event/get_event.php",
+      dataType: "json",
+      success: function(data, status, xhr) {
+        $('.event-row').html("");
+        console.log(data.length);
+        let eventList='';
+        let a=0;
+        for(let i=0; i<3; i++){
+          if(a<data.length){
+          if(i==0){
+          eventList+='<div class=\"event-item carousel-item active\"><div class=\"row event-preview-row\">';}
+          else{
+          eventList+='<div class=\"event-item carousel-item\"><div class=\"row event-preview-row\">';}
+          
+          for(let j=0; j<3; j++){
+            
+            if(a<data.length){
+            let json=data[a];
+            eventList+='<div class=\"col-lg-4 event-preview-column\"><div class=\"card\"><div class=\"card-header event-header\">'
+            eventList+='<h4 class=\"event-title\"><a href=\"view-event.php?id='+json.event_id+'\">'+json.event_title+'</a></h4></div>'
+            eventList+='<div class=\"card-body event-body\"><img class=\"img-fluid\" src=\"../assets/img/'+json.event_pic1+'\">'
+            eventList+='<div class=\"event-description\"><div class=\"row\"><div class=\"col-lg-6 col-sm-6 col-md-6 event-subheading\">'
+            eventList+='<span style=\"font-weight:bold;\">Date:</span><span style=\"display:block;\">'+json.event_date+'</span></div>'
+            eventList+='<div class=\"col-lg-6 col-sm-6 col-md-6 event-subheading\">'
+            eventList+='<span style=\"font-weight:bold;\">Venue:</span><span style=\"display:block;\">'+json.event_venue+'</span></div></div></div>'
+            eventList+='<div class=\"text-right\"><a href=\"view-event.php?id='+json.event_id+'\"><button class=\"btn btn-red\">Check out event</button></a></div></div></div></div>'
+            a+=1;
+            }
+          }
+          eventList+='</div></div>';}
+        }
+        $('.event-carousel').html(eventList);
+      },
+      error: function() {
+        alert(status);
+      }
+    })
+  })
+  </script>
   <script src="js/script.js"></script>
 </body>
 
