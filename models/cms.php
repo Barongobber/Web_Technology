@@ -15,6 +15,8 @@ if(!empty($_GET['cms'])){
             }
              else if ($_GET['act'] == 'update') {
                 include 'views/post/updateevent.php';
+            } else if ($_GET['act'] == 'info') {
+                include 'views/post/view_info.php';
             }
         } else {
             include 'views/post/table.php';
@@ -52,5 +54,3 @@ if(!empty($_GET['cms'])){
 } else {
     include 'views/404.html';
 }
-
-?>

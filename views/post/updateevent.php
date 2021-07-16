@@ -178,7 +178,7 @@
             mimeType: 'multipart/form-data',
             data: data,
             success: function(data, status, xhr) {
-                // window.location.href = '../../Web_Technology/utm_connect.php?cms=content_management';
+                window.location.href = '../../Web_Technology/utm_connect.php?cms=content_management';
                 console.log(data);
             },
             error: function(data) {

@@ -69,10 +69,10 @@
                     } else {
                         eventList += '<td align=\"center\"><button style=\"padding: 1px;\"  class=\"btn col-sm-9 btn-success\" >Registration Open</button></td><td align=\"center\">'
                     }
-                    eventList += '<button type=\"button\" style=\"padding: 1px 12px;\" class=\"btnAction btn btn-info\" ><i class=\"fa fa-info\"></i></button>'
+                    eventList += '<a href=\"?cms=content_management&act=info&id=' + json.event_id + '\"><button type=\"button\" style=\"padding: 1px 12px;\" class=\"btnAction btn btn-info\" ><i class=\"fa fa-info\"></i></button></a>'
                     eventList += '<a href=\"?cms=content_management&act=update&id=' + json.event_id + '\"><button type=\"button\" style=\"padding: 1px 12px;\" class=\"btnAction btn btn-dark\" ><i class=\"fa fa-pencil-square-o\"></i></button></a>'
                     // eventList += '<a href=\"views/post/del_event.php?id=' + json.event_id + '\"><button type=\"button\" onclick=\"deleteEvent('+json.event_id+');\"  style=\"padding: 1px 12px;\" class=\"btnAction btn btn-danger\" ><i class=\"fa fa-trash-o\"></i></button></td></tr></a>'
-                    eventList += '<button type=\"button\" onclick=\"deleteEvent('+json.event_id+');\"  style=\"padding: 1px 12px;\" class=\"btnAction btn btn-danger\" ><i class=\"fa fa-trash-o\"></i></button></td></tr>'
+                    eventList += '<button type=\"button\" onclick=\"deleteEvent(' + json.event_id + ');\"  style=\"padding: 1px 12px;\" class=\"btnAction btn btn-danger\" ><i class=\"fa fa-trash-o\"></i></button></td></tr>'
                 }
                 $('tbody').html(eventList);
             },
@@ -83,9 +83,9 @@
     })
 
     // function to delete event
-    function deleteEvent(id) { 
-        if(confirm("you sure to delete this?")) {
-            window.location.href = 'views/post/del_event.php?id='+id;
+    function deleteEvent(id) {
+        if (confirm("you sure to delete this?")) {
+            window.location.href = 'views/post/del_event.php?id=' + id;
             alert("Success to delete!!");
         } else {
             alert("NOOOO!!");
