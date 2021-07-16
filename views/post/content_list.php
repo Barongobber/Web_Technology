@@ -71,7 +71,8 @@
                     }
                     eventList += '<button type=\"button\" style=\"padding: 1px 12px;\" class=\"btnAction btn btn-info\" ><i class=\"fa fa-info\"></i></button>'
                     eventList += '<a href=\"?cms=content_management&act=update&id=' + json.event_id + '\"><button type=\"button\" style=\"padding: 1px 12px;\" class=\"btnAction btn btn-dark\" ><i class=\"fa fa-pencil-square-o\"></i></button></a>'
-                    eventList += '<a href=\"views/post/del_event.php?id=' + json.event_id + '\"><button type=\"button\" id=\"delete\" style=\"padding: 1px 12px;\" class=\"btnAction btn btn-danger\" ><i class=\"fa fa-trash-o\"></i></button></td></tr></a>'
+                    // eventList += '<a href=\"views/post/del_event.php?id=' + json.event_id + '\"><button type=\"button\" onclick=\"deleteEvent('+json.event_id+');\"  style=\"padding: 1px 12px;\" class=\"btnAction btn btn-danger\" ><i class=\"fa fa-trash-o\"></i></button></td></tr></a>'
+                    eventList += '<button type=\"button\" onclick=\"deleteEvent('+json.event_id+');\"  style=\"padding: 1px 12px;\" class=\"btnAction btn btn-danger\" ><i class=\"fa fa-trash-o\"></i></button></td></tr>'
                 }
                 $('tbody').html(eventList);
             },
@@ -79,16 +80,15 @@
                 alert(status);
             }
         });
-
-        $('#delete').click(() => {
-            $.ajax({
-                url: '../../Web_Technology/assets/php/event/delete_event.php?id=' + json.event_id,
-                type: 'DELETE',
-                success: (resp) => {
-                    console.log(resp);
-                    window.location.href = '../../Web_Technology/utm_connect.php?cms=content_management';
-                }
-            })
-        });
     })
+
+    // function to delete event
+    function deleteEvent(id) { 
+        if(confirm("you sure to delete this?")) {
+            window.location.href = 'views/post/del_event.php?id='+id;
+            alert("Success to delete!!");
+        } else {
+            alert("NOOOO!!");
+        }
+    }
 </script>
