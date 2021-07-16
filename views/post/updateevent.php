@@ -106,86 +106,85 @@
     </div>
 </div>
 <script>
-    $(document).ready(function(){
-    const query= window.location.search.split('id=')[1];
-    console.log(query);
-    $.ajax({
-      type: "GET",
-      url: "../../webtech/assets/php/event/get_event.php",
-      dataType: "json",
-      success: function(data, status, xhr) {
-        
-        console.log(data.length);
-        let eventList='';
-        currentDate= new Date();
-        for(let i=0; i<data.length; i++){
-          if(data[i].event_id==query){
-            let json=data[i];
-            $('#event-title').attr("value", json.event_title);
-            $('#event-venue').attr("value", json.event_venue);
-            $('#event-link').attr("value", json.event_url);
-            $('#closed-date').attr("value", json.closed_on);
-            $('#event-date').attr("value", json.event_date);
-            $('#event-details').html(json.event_details);
-            $('#event-category option[value='+json.event_category+']').prop('selected',true);
-            $('#open-for option[value='+json.open_for+']').prop('selected',true);
-          }
-        }
-        
-      },
-      error: function() {
-        alert(status);
-      }
-    })
-  });
-  
+    $(document).ready(function() {
+        const query = window.location.search.split('id=')[1];
+        console.log(query);
+        $.ajax({
+            type: "GET",
+            url: "../../Web_Techology/assets/php/event/get_event.php",
+            dataType: "json",
+            success: function(data, status, xhr) {
+
+                console.log(data.length);
+                let eventList = '';
+                currentDate = new Date();
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i].event_id == query) {
+                        let json = data[i];
+                        $('#event-title').attr("value", json.event_title);
+                        $('#event-venue').attr("value", json.event_venue);
+                        $('#event-link').attr("value", json.event_url);
+                        $('#closed-date').attr("value", json.closed_on);
+                        $('#event-date').attr("value", json.event_date);
+                        $('#event-details').html(json.event_details);
+                        $('#event-category option[value=' + json.event_category + ']').prop('selected', true);
+                        $('#open-for option[value=' + json.open_for + ']').prop('selected', true);
+                    }
+                }
+
+            },
+            error: function() {
+                alert(status);
+            }
+        })
+    });
 </script>
 <script>
-    $('#updateEvent').click(function(){
-    const query= window.location.search.split('id=')[1];
-    const input={};
-    input.event_id=query;
-    input.event_title=document.getElementById('event-title').value;
-    input.event_date=document.getElementById('event-date').value;
-    input.closed_on=document.getElementById('closed-date').value;
-    input.event_venue=document.getElementById('event-venue').value;
-    input.event_url=document.getElementById('event-link').value;
-    input.event_details=document.getElementById('event-details').value;
-    
-    category=document.getElementById('event-category');
-    input.event_category=category.options[category.selectedIndex].text;
-    openfor=document.getElementById('open-for');
-    input.open_for=openfor.options[openfor.selectedIndex].text;
-    const json= JSON.stringify(input);
-    
-    const img1=$('#pic1')[0].files[0];
-    const img2=$('#pic2')[0].files[0];
-    const img3=$('#pic3')[0].files[0];
-    const data=new FormData();
-    data.append('img1', img1);
-    data.append('json', json);
-    data.append('img2', img2);
-    data.append('img3', img3);
-    
-    console.log(json);
-    
-    $.ajax({
+    $('#updateEvent').click(function() {
+        const query = window.location.search.split('id=')[1];
+        const input = {};
+        input.event_id = query;
+        input.event_title = document.getElementById('event-title').value;
+        input.event_date = document.getElementById('event-date').value;
+        input.closed_on = document.getElementById('closed-date').value;
+        input.event_venue = document.getElementById('event-venue').value;
+        input.event_url = document.getElementById('event-link').value;
+        input.event_details = document.getElementById('event-details').value;
+
+        category = document.getElementById('event-category');
+        input.event_category = category.options[category.selectedIndex].text;
+        openfor = document.getElementById('open-for');
+        input.open_for = openfor.options[openfor.selectedIndex].text;
+        const json = JSON.stringify(input);
+
+        const img1 = $('#pic1')[0].files[0];
+        const img2 = $('#pic2')[0].files[0];
+        const img3 = $('#pic3')[0].files[0];
+        const data = new FormData();
+        data.append('img1', img1);
+        data.append('json', json);
+        data.append('img2', img2);
+        data.append('img3', img3);
+
+        console.log(json);
+
+        $.ajax({
             type: "POST",
             processData: false,
             contentType: false,
             cache: false,
             // dataType: 'json',           
-            url: '../../webtech/assets/php/event/update_event.php',
+            url: '../../Web_Technology/assets/php/event/update_event.php',
             mimeType: 'multipart/form-data',
             data: data,
-            success: function(data, status, xhr){
-                // window.location.href = '../../webtech/utm_connect.php?cms=content_management';
+            success: function(data, status, xhr) {
+                // window.location.href = '../../Web_Technology/utm_connect.php?cms=content_management';
                 console.log(data);
-            }
-            ,error: function(data){
+            },
+            error: function(data) {
                 alert(data);
             }
-            
+
         })
-  })
+    })
 </script>
