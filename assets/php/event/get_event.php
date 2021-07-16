@@ -1,7 +1,13 @@
 <?php
     require_once '../db.php';
     
-    $sql = "SELECT * FROM event";
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM event WHERE event_id=$id";
+    } else {
+        $sql = "SELECT * FROM event";
+    }
+
     try {
         // Get DB Object
         $db = new db();
