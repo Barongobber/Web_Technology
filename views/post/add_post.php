@@ -110,41 +110,44 @@
     $('#submit').click(() => {
         event.preventDefault();
 
-        let title = $('#title').val();
-        let category = $('#category').val();
-        let closedDate = $('#closedDate').val();
-        let eventDate = $('#eventDate').val();
-        let venue = $('#venue').val();
-        let openFor = $('#openFor').val();
-        let formUrl = $('#formUrl').val();
-        let eventDetails = $('#eventDetails').val();
+        const input = {};
+        input.event_title = $('#title').val();
+        input.event_category = $('#category').val();
+        input.closed_on = $('#closedDate').val();
+        input.event_date = $('#eventDate').val();
+        input.event_venue = $('#venue').val();
+        input.open_for = $('#openFor').val();
+        input.event_url = $('#formUrl').val();
+        input.event_details = $('#eventDetails').val();
+
+        const json = JSON.stringify(input);
+
         let pic1 = $('#pic1')[0].files[0];
         let pic2 = $('#pic2')[0].files[0];
         let pic3 = $('#pic3')[0].files[0];
 
-        // alert(typeof pic1['name']);
+        const data = new FormData();
+
+        data.append('event_pic1', pic1);
+        data.append('event_pic2', pic2);
+        data.append('event_pic3', pic3);
+        data.append('json', json);
+
+
+        // alert(pic1['name']);
 
         if (confirm("Are you sure all data is correct?")) {
             $.ajax({
                 type: "POST",
-                contentType: "application/json",
+                processData: false,
+                contentType: false,
+                cache: false,
                 url: "../../Web_Technology/assets/php/event/insert_event.php",
-                data: JSON.stringify({
-                    event_title: title,
-                    event_category: category,
-                    closed_on: closedDate,
-                    event_date: eventDate,
-                    event_venue: venue,
-                    open_for: openFor,
-                    event_url: formUrl,
-                    event_details: eventDetails,
-                    event_pic1: pic1,
-                    event_pic2: pic2,
-                    event_pic3: pic3
-                }),
+                mimeType: 'multipart/form-data',
+                data: data,
                 success: (resp) => {
                     // console.log(resp);
-                    alert(resp);
+                    // alert(resp);
                     window.location.href = '../../Web_Technology/utm_connect.php?cms=content_management';
                     // window.location.href = './../Web_Technology/assets/php/event/insert_event.php';
                 }
@@ -155,5 +158,6 @@
         }
 
         // alert(eventDate+ " " + closedDate);
+
     });
 </script>

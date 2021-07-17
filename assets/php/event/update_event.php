@@ -111,7 +111,7 @@
             "rowcount" =>$count
         );
 
-        echo json_encode($input);
+        echo json_encode($data);
 
         } catch (PDOException $e) {
         
@@ -121,4 +121,3 @@
 
         echo json_encode($data);
     }
-?>
