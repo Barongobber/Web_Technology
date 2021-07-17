@@ -78,19 +78,19 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Picture 1<span style="color: red;">*</span></label>
                             <div class="col-sm-9">
-                                <input type="submit" id="pic1" class="btn btn-primary" value="Upload Picture" name="">
+                                <input type="file" id="pic1" class="btn btn-primary" value="Upload Picture" name="" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="contact-province" class="col-sm-3 col-form-label">Picture 2</label>
                             <div class="col-sm-9">
-                                <input type="submit" id="pic2" class="btn btn-primary" value="Upload Picture" name="">
+                                <input type="file" id="pic2" class="btn btn-primary" value="Upload Picture" name="">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="contact-city" class="col-sm-3 col-form-label">Picture 3</label>
                             <div class="col-sm-9">
-                                <input type="submit" id="pic3" class="btn btn-primary" value="Upload Picture" name="">
+                                <input type="file" id="pic3" class="btn btn-primary" value="Upload Picture" name="">
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,6 @@
     $('#submit').click(() => {
         event.preventDefault();
 
-        // alert("coba");
         let title = $('#title').val();
         let category = $('#category').val();
         let closedDate = $('#closedDate').val();
@@ -119,12 +118,13 @@
         let openFor = $('#openFor').val();
         let formUrl = $('#formUrl').val();
         let eventDetails = $('#eventDetails').val();
-        let pic1 = 'e3pic1.png';
-        let pic2 = $('#pic2').val();
-        let pic3 = $('#pic3').val();
-        // let posted_on = date("Y-m-d");
+        let pic1 = $('#pic1')[0].files[0];
+        let pic2 = $('#pic2')[0].files[0];
+        let pic3 = $('#pic3')[0].files[0];
 
-        if(confirm("Are you sure all data is correct?")){
+        // alert(typeof pic1['name']);
+
+        if (confirm("Are you sure all data is correct?")) {
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
@@ -144,14 +144,16 @@
                 }),
                 success: (resp) => {
                     // console.log(resp);
-                    // alert(resp);
+                    alert(resp);
                     window.location.href = '../../Web_Technology/utm_connect.php?cms=content_management';
+                    // window.location.href = './../Web_Technology/assets/php/event/insert_event.php';
                 }
             })
         } else {
             alert("Input failed!");
             window.location.href = '../../Web_Technology/utm_connect.php?cms=content_management&act=event';
         }
+
         // alert(eventDate+ " " + closedDate);
     });
 </script>
