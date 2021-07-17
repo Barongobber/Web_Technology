@@ -1,6 +1,7 @@
 <?php
 require_once '../db.php';
-$inputJSON = file_get_contents('php://input');
+
+$inputJSON = $_POST['json'];
 $input = json_decode($inputJSON, TRUE);
 
 $event_title = $input["event_title"];
@@ -33,6 +34,23 @@ try {
     $db = new db();
     // Connect
     $db = $db->connect();
+
+    if (0 < $_FILES['event_pic1']['error']) {
+        echo 'Error: ' . $_FILES['event_pic1']['error'] . '<br>';
+    } else {
+        move_uploaded_file($_FILES['event_pic1']['tmp_name'], '../../img/' . $_FILES['event_pic1']['name']);
+    }
+    if (0 < $_FILES['event_pic2']['error']) {
+        echo 'Error: ' . $_FILES['event_pic2']['error'] . '<br>';
+    } else {
+        move_uploaded_file($_FILES['event_pic2']['tmp_name'], '../../img/' . $_FILES['event_pic2']['name']);
+    }
+    if (0 < $_FILES['event_pic3']['error']) {
+        echo 'Error: ' . $_FILES['event_pic3']['error'] . '<br>';
+    } else {
+        move_uploaded_file($_FILES['event_pic3']['tmp_name'], '../../img/' . $_FILES['event_pic3']['name']);
+    }
+
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':event_title', $event_title);
     $stmt->bindValue(':event_category', $event_category);
