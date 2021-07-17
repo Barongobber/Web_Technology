@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -67,7 +68,7 @@
           <li class="nav-item dropdown no-arrow">
                 <div class="nav-item dropdown no-arrow">
                   <a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#">
-                    <span class="d-block d-lg-inline mr-2 text-gray-600 small" >Udin Saleh</span>
+                    <span class="d-block d-lg-inline mr-2 text-gray-600 small" ><?php echo $_SESSION['userlogin'] ?></span>
                     <div class="d-lg-none dropdown-divider"></div>
                     <img class="border rounded-circle img-profile avatar" src="assets/img/profile.jpg"></a>
                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
