@@ -11,6 +11,7 @@
                 <li class="nav-item"><a class="nav-link" href="?cms=feedback_management"><i class="fa fa-pencil-square"></i><span>Feedback Management</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="?cms=email_blast"><i class="fas fa-envelope-square"></i><span>Email Blasting</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="member/index.php"><i class="fas fa-user-circle"></i><span>Go to member side</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="assets/php/auth/logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
             </ul>
         <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
     </div>
